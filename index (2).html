@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0F172A" />
+    <title>BIL Hub | Bilim Innovation Lyceum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" data-tab="home" aria-label="BIL Hub home">
+          <span class="brand-mark" aria-hidden="true"><span>BIL</span></span>
+          <span class="brand-copy">
+            <strong>BIL Hub</strong>
+            <small>Bilim Innovation Lyceum</small>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <button class="nav-link active" data-tab="home"><span class="nav-icon">⌂</span> Home</button>
+          <button class="nav-link" data-tab="lost"><span class="nav-icon">⌕</span> Lost &amp; Found</button>
+          <button class="nav-link" data-tab="volunteer"><span class="nav-icon">♡</span> Volunteer</button>
+          <button class="nav-link" data-tab="sports"><span class="nav-icon">◉</span> Sports</button>
+        </nav>
+
+        <div class="profile-area">
+          <div class="points-pill" aria-label="1250 volunteer points">
+            <span class="star">✦</span>
+            <span><strong id="point-count">1,250</strong> Points</span>
+          </div>
+          <button class="profile" type="button" aria-label="Aidyn profile">
+            <span class="avatar">A</span>
+            <span class="profile-copy"><strong>Aidyn</strong><small>Grade 10B</small></span>
+            <span class="chevron">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="view active" id="home-view" data-view="home">
+          <div class="welcome-grid">
+            <div class="hero-card">
+              <div class="hero-content">
+                <p class="eyebrow"><span class="pulse-dot"></span> Connected campus life</p>
+                <h1>Everything happening at <span>BIL</span>, in one place.</h1>
+                <p class="hero-text">Help your school community, find your next match, and reunite lost items with their owners.</p>
+                <div class="hero-actions">
+                  <button class="primary-button" data-tab="volunteer">Explore volunteering <span>→</span></button>
+                  <button class="text-button" data-tab="sports">Find a match</button>
+                </div>
+              </div>
+              <div class="hero-orb orb-one"></div>
+              <div class="hero-orb orb-two"></div>
+              <div class="hero-calendar" aria-hidden="true">
+                <div class="calendar-top"><span>OCT</span><b>23</b></div>
+                <div class="calendar-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <aside class="availability-card">
+              <div class="availability-icon">✦</div>
+              <div class="availability-heading">
+                <p>Volunteer status</p>
+                <h2 id="availability-title">Ready to make a difference?</h2>
+              </div>
+              <label class="switch-row" for="availability-switch">
+                <span id="availability-label">Available for Volunteering</span>
+                <input id="availability-switch" type="checkbox" />
+                <span class="switch" aria-hidden="true"></span>
+              </label>
+              <p class="availability-note" id="availability-note">Turn this on to let organizers know you can help.</p>
+            </aside>
+          </div>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <div><p class="eyebrow blue">Volunteer</p><h2>Priority requests</h2></div>
+              <button class="view-all" data-tab="volunteer">View all <span>→</span></button>
+            </div>
+            <div class="request-grid" id="home-volunteer-list"></div>
+          </section>
+
+          <section class="section-block home-bottom-grid">
+            <div>
+              <div class="section-heading compact-heading">
+                <div><p class="eyebrow blue">Sports</p><h2>Happening soon</h2></div>
+                <button class="view-all" data-tab="sports">All matches <span>→</span></button>
+              </div>
+              <div class="mini-match-list" id="home-sports-list"></div>
+            </div>
+            <div class="finders-card">
+              <div class="finders-illustration"><span>⌕</span><i></i><b>!</b></div>
+              <div>
+                <p class="eyebrow blue">Lost &amp; Found</p>
+                <h2>See something missing?</h2>
+                <p>Browse active items or help a fellow student by reporting one you found.</p>
+                <button class="secondary-button" data-tab="lost">Open bureau <span>→</span></button>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" id="volunteer-view" data-view="volunteer">
+          <div class="page-intro intro-volunteer">
+            <div><p class="eyebrow light">Give your time</p><h1>Volunteer &amp; community</h1><p>Small acts of help make our school stronger. Pick a request that fits your schedule.</p></div>
+            <div class="intro-stat"><strong id="applied-total">0</strong><span>requests joined</span></div>
+          </div>
+          <div class="filter-row volunteer-filter">
+            <button class="chip active" type="button">All requests</button>
+            <button class="chip" type="button">Parliament</button>
+            <button class="chip" type="button">Teachers</button>
+            <button class="chip" type="button">Student clubs</button>
+          </div>
+          <div class="volunteer-list" id="volunteer-list"></div>
+        </section>
+
+        <section class="view" id="sports-view" data-view="sports">
+          <div class="page-title-row">
+            <div><p class="eyebrow blue">Break time plans</p><h1>Sports &amp; activities</h1><p>Find a team, challenge a classmate, or make your own game.</p></div>
+            <button class="primary-button" id="create-match-button">+ Create a match</button>
+          </div>
+          <div class="sports-summary">
+            <div class="summary-copy"><span class="summary-icon">◉</span><div><strong>6 active matches</strong><p>There is a game for every kind of break.</p></div></div>
+            <div class="sport-filters" aria-label="Filter sports"><button class="chip active" data-sport="all">All</button><button class="chip" data-sport="Football">Football</button><button class="chip" data-sport="Basketball">Basketball</button><button class="chip" data-sport="Chess">Chess</button></div>
+          </div>
+          <div class="sports-grid" id="sports-list"></div>
+        </section>
+
+        <section class="view" id="lost-view" data-view="lost">
+          <div class="page-title-row">
+            <div><p class="eyebrow blue">BIL Bureau</p><h1>Lost &amp; Found</h1><p>Help every item find its way back to its owner.</p></div>
+            <button class="primary-button" id="report-item-button">+ Report item</button>
+          </div>
+          <div class="lost-toolbar">
+            <div class="item-tabs" role="tablist" aria-label="Item type">
+              <button class="item-tab active" data-item-tab="lost" role="tab" aria-selected="true">Lost items <span id="lost-count">0</span></button>
+              <button class="item-tab" data-item-tab="found" role="tab" aria-selected="false">Found items <span id="found-count">0</span></button>
+            </div>
+            <label class="search-field"><span>⌕</span><input type="search" id="item-search" placeholder="Search items" aria-label="Search items" /></label>
+          </div>
+          <div class="category-row" id="category-filters">
+            <button class="category-chip active" data-category="All">All items</button>
+            <button class="category-chip" data-category="Electronics">Electronics</button>
+            <button class="category-chip" data-category="Clothing">Clothing</button>
+            <button class="category-chip" data-category="Supplies">Supplies</button>
+            <button class="category-chip" data-category="Books">Books</button>
+          </div>
+          <div class="items-grid" id="items-list"></div>
+        </section>
+      </main>
+
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-link active" data-tab="home"><span>⌂</span><small>Home</small></button>
+        <button class="mobile-link" data-tab="lost"><span>⌕</span><small>Lost &amp; Found</small></button>
+        <button class="mobile-link" data-tab="volunteer"><span>♡</span><small>Volunteer</small></button>
+        <button class="mobile-link" data-tab="sports"><span>◉</span><small>Sports</small></button>
+      </nav>
+    </div>
+
+    <div class="modal-backdrop" id="item-modal" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="report-modal-title">
+        <button class="modal-close" id="close-modal" type="button" aria-label="Close report form">×</button>
+        <p class="eyebrow blue">Lost &amp; Found</p>
+        <h2 id="report-modal-title">Report an item</h2>
+        <p class="modal-description">Share a few details so the right person can find it.</p>
+        <form id="report-form">
+          <div class="segmented-control" role="radiogroup" aria-label="Report type">
+            <label><input type="radio" name="reportType" value="lost" checked /><span>I lost something</span></label>
+            <label><input type="radio" name="reportType" value="found" /><span>I found something</span></label>
+          </div>
+          <div class="form-grid">
+            <label>Item title<input required name="title" type="text" placeholder="e.g. Black headphones" /></label>
+            <label>Category<select required name="category"><option value="Supplies">Supplies</option><option value="Electronics">Electronics</option><option value="Clothing">Clothing</option><option value="Books">Books</option></select></label>
+          </div>
+          <label>Location<input required name="location" type="text" placeholder="e.g. Main Gym" /></label>
+          <label>Description<textarea required name="description" rows="3" placeholder="Add details that will help identify the item."></textarea></label>
+          <label class="upload-field"> <input name="image" type="file" accept="image/*" /><span class="upload-icon">↑</span><span><strong>Upload an image</strong><small>PNG, JPG or HEIC</small></span></label>
+          <button class="primary-button full-button" type="submit">Submit report <span>→</span></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="match-modal" aria-hidden="true">
+      <div class="modal compact-modal" role="dialog" aria-modal="true" aria-labelledby="match-modal-title">
+        <button class="modal-close" data-close-match type="button" aria-label="Close create match form">×</button>
+        <p class="eyebrow blue">Sports</p>
+        <h2 id="match-modal-title">Create a match</h2>
+        <p class="modal-description">Invite classmates to your next break time game.</p>
+        <form id="match-form">
+          <div class="form-grid">
+            <label>Sport<select required name="sport"><option>Football</option><option>Basketball</option><option>Volleyball</option><option>Chess</option></select></label>
+            <label>Time<input required name="time" type="time" value="15:30" /></label>
+          </div>
+          <div class="form-grid">
+            <label>Location<input required name="location" type="text" placeholder="e.g. Main Gym" /></label>
+            <label>Players needed<input required name="players" type="number" min="1" max="10" value="2" /></label>
+          </div>
+          <button class="primary-button full-button" type="submit">Post match <span>→</span></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
